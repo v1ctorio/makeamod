@@ -6,6 +6,8 @@
 - These guides will include a simple step by step guide on how to implement something (i.e. adding a new Joker to Balatro) and then list some ideas to \
 develop and link more resources to mod
 
+- The goal of this YSWS is to make each mod a project the creator can be proud of.
+
 ## Submit a mod
 ehs == estimated hours spent
 - Beginners will follow the guide, create their own mod and submit it through a form. From here, several things may happen:
