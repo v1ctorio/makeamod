@@ -277,7 +277,7 @@ export function CardsSection() {
   useEffect(() => {
     const intervalId = window.setInterval(() => {
       setActiveSlide((previous) => (previous + 1) % totalSlides);
-    }, 6500);
+    }, 6500*4);
 
     return () => window.clearInterval(intervalId);
   }, []);
