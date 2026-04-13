@@ -1,0 +1,168 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  flex-wrap: wrap;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.input {
+  background-color: white;
+  line-height: 1.5;
+}
+
+.heading {
+  font-family: "Roboto", sans-serif;
+  font-size: 6.5rem;
+  font-weight: 700;
+  margin-bottom: 0rem;
+}
+
+.howItWorksSection {
+  padding: 3rem 0 1rem;
+}
+
+.faqSection {
+  padding: 3rem 0 4rem;
+}
+
+.faqHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.faqTitle {
+  font-family: "BJ Cree", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.faqSubtitle {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.stepsList {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stepCard {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.stepNumber {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: var(--ifm-color-primary);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.stepTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.stepDescription {
+  margin: 0;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.faqList {
+  display: grid;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 1rem;
+  padding: 0.25rem 1.1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.faqItem[open] {
+  border-color: var(--ifm-color-primary-light);
+}
+
+.faqQuestion {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  font-weight: 700;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::after {
+  content: '+';
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--ifm-color-primary);
+}
+
+.faqItem[open] .faqQuestion::after {
+  content: '−';
+}
+
+.faqAnswer {
+  padding: 0 0 1rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+@media screen and (max-width: 996px) {
+  .howItWorksSection {
+    padding: 2rem 0 1rem;
+  }
+
+  .faqSection {
+    padding: 2rem 0 3rem;
+  }
+
+  .stepsList {
+    grid-template-columns: 1fr;
+  }
+
+  .faqTitle {
+    font-size: 2.25rem;
+  }
+}
