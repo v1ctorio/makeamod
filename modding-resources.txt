@@ -1,0 +1,4 @@
+- https://github.com/Steamodded/smods/wiki
+- Example mods https://github.com/Steamodded/examples/tree/master/Mods
+- https://gridlocdev.github.io/lua-beginners-guide/
+- https://github.com/ethangreen-dev/lovely-injector

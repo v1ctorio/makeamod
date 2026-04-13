@@ -1,0 +1,14 @@
+- Heading con "Make a mod:"
+
+- Button to like select multiple but there's only one option, "Balatro"
+- Link to the guide
+- "Create a Joker, get a deck"
+
+- 'Learn how to make your own balatro mod (it's easier than you think!) and!'
+
+
+guide
+- [¡IMPORTANT!] you won't be elegible for the prizes if you don't track your time using hackatime, make sure to install it!
+
+If you don't have any programming experience, don't worry! This guide is designed to be beginner-friendly and will walk you through the process step by step. 
+Still, I recommend you to look up what a *variable* and a *function* is. Those two concepts will be enough to understand this guide.
