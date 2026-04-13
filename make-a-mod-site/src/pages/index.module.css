@@ -96,13 +96,14 @@
 .carouselViewport3d {
   perspective: 1400px;
   min-height: 320px;
+  overflow: hidden;
 }
 
 .carouselTrack3d {
   position: relative;
   height: 100%;
   min-height: 320px;
-  margin-bottom: 4rem;
+  margin-bottom: 2.25rem;
   transform-style: preserve-3d;
 }
 
@@ -115,6 +116,9 @@
   transform-origin: center center;
   translate: -50% 0;
   transition: transform 0.6s ease, opacity 0.35s ease;
+  box-sizing: border-box;
+  max-height: 100%;
+  overflow: auto;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 1rem;
   background: var(--ifm-background-surface-color);
@@ -405,6 +409,7 @@
   .carouselTrack3d {
     display: flex;
     min-height: 420px;
+    margin-bottom: 2rem;
   }
 
   .carouselSlide3d {
@@ -432,5 +437,11 @@
 
   .eligibilityText {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsimg {
+    max-height: 230px;
   }
 }

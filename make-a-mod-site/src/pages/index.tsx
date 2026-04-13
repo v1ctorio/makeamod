@@ -218,10 +218,10 @@ export function CardsSection() {
             <img
               src="/img/playing-cards-no-bg-16-9.png"
               alt="Balatro playing cards"
-              className="img-fluid"
+              className={clsx("img-fluid", styles.cardsimg)}
               loading="lazy"
               style={{maxWidth: "100%",
-                maxHeight: "100%"
+                height: "100%"
 
               }}
             />
