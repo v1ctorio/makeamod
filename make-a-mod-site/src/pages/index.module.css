@@ -24,9 +24,32 @@
   justify-content: space-around;
 }
 
+.primaryCtaRow {
+  display: flex;
+  gap: 15px;
+}
+
 .input {
   background-color: white;
   line-height: 1.5;
+}
+
+.hcaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #d9364f;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.hcaButton:hover {
+  color: #fff;
+  filter: brightness(1.06);
+}
+
+.hcaIcon {
+  border-radius: 6px;
 }
 
 .heading {
@@ -42,6 +65,56 @@
 
 .faqSection {
   padding: 3rem 0 4rem;
+}
+
+.eligibilitySection {
+  padding: 0.5rem 0 1.5rem;
+}
+
+.eligibilityCard {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 35%, #ffffff);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--ifm-color-primary) 12%, #ffffff);
+  box-shadow: 0 12px 28px rgba(90, 22, 22, 0.12);
+  text-align: center;
+}
+
+.eligibilityEyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.eligibilityText {
+  margin: 0.35rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.eligibilityText a {
+  color: var(--ifm-color-primary-darkest);
+  text-decoration-thickness: 2px;
+}
+
+[data-theme='dark'] .eligibilityCard {
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 55%, #ffffff);
+  background: rgba(94, 22, 22, 0.92);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme='dark'] .eligibilityText {
+  color: #ffe6e1;
+}
+
+[data-theme='dark'] .eligibilityText a {
+  color: #ffb8af;
 }
 
 .faqHeader {
@@ -154,6 +227,19 @@
     padding: 2rem 0 1rem;
   }
 
+  .primaryCtaRow {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
   .faqSection {
     padding: 2rem 0 3rem;
   }
@@ -164,5 +250,13 @@
 
   .faqTitle {
     font-size: 2.25rem;
+  }
+
+  .eligibilityCard {
+    padding: 0.9rem 1rem;
+  }
+
+  .eligibilityText {
+    font-size: 1rem;
   }
 }

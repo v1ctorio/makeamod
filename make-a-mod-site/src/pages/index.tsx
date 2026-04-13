@@ -82,7 +82,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className={clsx("hero__title", styles.heading)}>
-          {siteConfig.title}
+          Make a Mod:
         </Heading>
         {/* <div className='hero'>
 
@@ -163,7 +163,7 @@ function HowItWorksSection(): ReactNode {
             How does it work?
           </Heading>
           <p className={styles.faqSubtitle}>
-            A simple path from setup to your first custom mod.
+            Create your custom Balatro mod.
           </p>
         </div>
 
@@ -190,19 +190,42 @@ export default function Home() {
       description="Create a Joker, get a deck!">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+
+        <section className="margin-vert--lg">
+          <div className="container">
+            <div className="card shadow--md">
+              <div className="card__body">
+                <div className="row row--align-center">
+                  <div className="col col--5">
+                    <img
+                      src="/img/playing-cards-no-bg-16-9.png"
+                      alt="Balatro playing cards"
+                      className="img-fluid"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="col col--7">
+                    <p className="text--uppercase text--bold margin-bottom--xs">Ages 13-18</p>
+                    <h3 className="margin-bottom--sm">Learn Balatro modding, get rewards</h3>
+                    <p className="margin-bottom--md">
+                      Build your own Balatro mod and earn a deck of{' '}
+                      <a href='https://www.fangamer.com/products/balatro-playing-cards' target='_blank' rel='noreferrer'>
+                        Balatro Playing Cards
+                      </a>
+                      {' '}plus a <b>custom keychain</b>.
+                    </p>
+                    <Link className="button button--primary" to="/register">
+                      Register now
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <HowItWorksSection />
         <FaqSection />
 
-<header className='header'>
-<div className='container'>
-      <p>
-      Are you between 13-18 years old? Learn how to make your own Balatro mod and get a deck of <a href='https://www.fangamer.com/products/balatro-playing-cards'>Balatro Playing Cards</a>
-      </p>
-
-
-</div>
-</header>
       </main>
     </Layout>
   );
