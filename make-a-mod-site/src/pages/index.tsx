@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import {useEffect, useState, type ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -20,25 +20,22 @@ type WorkStep = {
 
 const workSteps: WorkStep[] = [
   {
-    title: 'Install a code editor',
-    description: <>Set up VS Code so you have a place to write and edit your mod files.</>,
+    title: 'Install a code editor and Hackatime',
+    description: <>Set up VS Code and track your time with Hackatime to stay eligible for prizes.</>,
   },
-  {
-    title: 'Install Hackatime',
-    description: (
-      <>
-        Track your time with Hackatime to stay eligible for prizes.
-      </>
-    ),
-  },
+  
   {
     title: 'Follow the guide',
     description: <>Work through the beginner-friendly guide and learn the basics step by step.</>,
   },
   {
-    title: 'Add features own your own',
+    title: 'Add features on your own',
     description: <>Make it yours by adding a new idea, mechanic, or tweak beyond the tutorial. Make a real mod that you'd like people to use.</>,
   },
+  {
+    title: "Submit your project and claim prizes!",
+    description:" Once you're done, submit your mod for review. If you're eligible, you'll receive a deck of Balatro Playing Cards and a custom keychain as rewards for your awesome project!",
+  }
 ];
 
 const faqItems: FaqItem[] = [
@@ -191,38 +188,7 @@ export default function Home() {
       <HomepageHeader />
       <main>
 
-        <section className="margin-vert--lg">
-          <div className="container">
-            <div className="card shadow--md">
-              <div className="card__body">
-                <div className="row row--align-center">
-                  <div className="col col--5">
-                    <img
-                      src="/img/playing-cards-no-bg-16-9.png"
-                      alt="Balatro playing cards"
-                      className="img-fluid"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="col col--7">
-                    <p className="text--uppercase text--bold margin-bottom--xs">Ages 13-18</p>
-                    <h3 className="margin-bottom--sm">Learn Balatro modding, get rewards</h3>
-                    <p className="margin-bottom--md">
-                      Build your own Balatro mod and earn a deck of{' '}
-                      <a href='https://www.fangamer.com/products/balatro-playing-cards' target='_blank' rel='noreferrer'>
-                        Balatro Playing Cards
-                      </a>
-                      {' '}plus a <b>custom keychain</b>.
-                    </p>
-                    <Link className="button button--primary" to="/register">
-                      Register now
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <CardsSection/>
         <HowItWorksSection />
         <FaqSection />
 
@@ -230,3 +196,182 @@ export default function Home() {
     </Layout>
   );
 }
+
+export function CardsSection() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const slides = [
+    {
+      key: 'rewards',
+      title: 'Ages 13-18: Learn Balatro modding, get rewards',
+      body: (
+        <>
+          Build your own Balatro mod and earn a deck of{' '}
+          <a href='https://www.fangamer.com/products/balatro-playing-cards' target='_blank' rel='noreferrer'>
+            Balatro Playing Cards
+          </a>
+          {' '}plus a <b>custom keychain</b>.
+        </>
+      ),
+      content: (
+        <div className="row row--align-center">
+          <div className="col col--5" style={{maxHeight: "100%"}}>
+            <img
+              src="/img/playing-cards-no-bg-16-9.png"
+              alt="Balatro playing cards"
+              className="img-fluid"
+              loading="lazy"
+              style={{maxWidth: "100%",
+                maxHeight: "100%"
+
+              }}
+            />
+          </div>
+          <div className="col col--7">
+            <h3 className="margin-bottom--sm">Ages 13-18: Learn Balatro modding, get rewards</h3>
+            <p className="margin-bottom--md">
+              Build your own Balatro mod and earn a deck of{' '}
+              <a href='https://www.fangamer.com/products/balatro-playing-cards' target='_blank' rel='noreferrer'>
+                Balatro Playing Cards
+              </a>
+              {' '}plus a <b>custom keychain</b>.
+            </p>
+            <Link className="button button--primary" to="/docs/intro">
+              Read the guide!
+            </Link>
+          </div>
+        </div>
+      ),
+    },
+    ...ExistingMods.map((mods) => ({
+      key: mods.toString(),
+      title: 'Build stuff like this',
+      body: (
+        <>
+          Learn the basics, then put your own spin on it. You can! <br/> These are some mods built by the Balatro community
+        </>
+      ),
+      content: mods.map((mod) => (
+        <a href={mod.url} target="_blank" rel="noreferrer" className={styles.modSpotlight}>
+          <img src={mod.image} alt={mod.name} loading="lazy" className={styles.modSpotlightImage} />
+          <div>
+            <p className={styles.modSpotlightName}>{mod.name}</p>
+            <p className={styles.modSpotlightAuthor}>by {mod.author}</p>
+          </div>
+        </a>
+      )),
+    })),
+  ];
+  const totalSlides = slides.length;
+
+  const getRelativePosition = (index: number): number => {
+    const raw = index - activeSlide;
+    if (raw > totalSlides / 2) {
+      return raw - totalSlides;
+    }
+    if (raw < -totalSlides / 2) {
+      return raw + totalSlides;
+    }
+    return raw;
+  };
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveSlide((previous) => (previous + 1) % totalSlides);
+    }, 6500);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  return (
+    <section className="margin-vert--lg">
+      <div className="container">
+        <div className="card shadow--md">
+          <div className="card__body">
+            <div className={styles.carouselHeader}>
+              <p className="text--uppercase text--bold margin-bottom--none"></p>
+              <div className={styles.carouselControls}>
+                <button
+                  type="button"
+                  className="button button--sm button--secondary"
+                  onClick={() => setActiveSlide((activeSlide - 1 + totalSlides) % totalSlides)}
+                  aria-label="Previous slide"
+                >
+                  {"<"}
+                </button>
+                <button
+                  type="button"
+                  className="button button--sm button--secondary"
+                  onClick={() => setActiveSlide((activeSlide + 1) % totalSlides)}
+                  aria-label="Next slide"
+                >
+                  {">"}
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.carouselViewport3d}>
+              <div className={styles.carouselTrack3d}>
+                {slides.map((slide, index) => {
+                  const position = getRelativePosition(index);
+                  const isVisible = Math.abs(position) <= 1;
+                  const transform =
+                    position === 0
+                      ? 'translateX(0) translateZ(36px) rotateY(0deg) scale(1)'
+                      : position < 0
+                        ? 'translateX(-58%) translateZ(-70px) rotateY(22deg) scale(0.88)'
+                        : 'translateX(58%) translateZ(-70px) rotateY(-22deg) scale(0.88)';
+
+                  return (
+                    <article
+                      key={slide.key}
+                      className={styles.carouselSlide3d}
+                      style={{
+                        transform,
+                        opacity: isVisible ? 1 : 0,
+                        zIndex: position === 0 ? 3 : 2,
+                        pointerEvents: position === 0 ? 'auto' : 'none',
+                      }}
+                      aria-hidden={position !== 0}
+                    >
+                      <h3 className="margin-bottom--sm">{slide.title}</h3>
+                      <p className="margin-bottom--md">{slide.body}</p>
+                      {slide.content}
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className={styles.carouselDots}>
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.key}
+                  type="button"
+                  className={clsx(styles.carouselDot, index === activeSlide && styles.carouselDotActive)}
+                  onClick={() => setActiveSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+const ExistingMods = [[
+  {
+    url: "https://thunderstore.io/c/balatro/p/JoStro/Parrot_Joker/",
+    name: "Parrot Joker",
+    image:"https://thunderstore.io/thumbnail-serve/repository/icons/JoStro-Parrot_Joker-0.3.3.png/?width=128&height=128",
+    author:"JoStro"
+  },
+  {
+    url: "https://thunderstore.io/c/balatro/p/SirMaiquis/Baldatro/",
+    name:"Baldatro",
+    image:"https://thunderstore.io/thumbnail-serve/repository/icons/SirMaiquis-Baldatro-1.2.0.png/?width=128&height=128",
+    author: "SirMaiquis"
+  }
+]]

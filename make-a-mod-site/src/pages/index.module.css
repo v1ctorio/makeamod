@@ -67,6 +67,155 @@
   padding: 3rem 0 4rem;
 }
 
+.carouselHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.carouselControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carouselViewport {
+  overflow: hidden;
+}
+
+.carouselTrack {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+
+.carouselSlide {
+  min-width: 100%;
+}
+
+.carouselViewport3d {
+  perspective: 1400px;
+  min-height: 320px;
+}
+
+.carouselTrack3d {
+  position: relative;
+  height: 100%;
+  min-height: 320px;
+  margin-bottom: 4rem;
+  transform-style: preserve-3d;
+}
+
+.carouselSlide3d {
+  position: absolute;
+  width: min(900px, 100%);
+  left: 50%;
+  top: 0;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  translate: -50% 0;
+  transition: transform 0.6s ease, opacity 0.35s ease;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 1rem;
+  background: var(--ifm-background-surface-color);
+  padding: 1.1rem;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.modSpotlight {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.9rem;
+  padding: 0.75rem;
+  text-decoration: none;
+}
+
+.modSpotlight:hover {
+  border-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.modSpotlightImage {
+  width: 68px;
+  height: 68px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.modSpotlightName {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.modSpotlightAuthor {
+  margin: 0.15rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.modsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.modCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.9rem;
+  padding: 0.75rem;
+  text-decoration: none;
+  background: var(--ifm-background-surface-color);
+}
+
+.modCard:hover {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.modImage {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.modName {
+  margin: 0;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.modAuthor {
+  margin: 0.1rem 0 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.carouselDots {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.carouselDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--ifm-color-emphasis-400);
+  cursor: pointer;
+}
+
+.carouselDotActive {
+  background: var(--ifm-color-primary);
+}
+
 .eligibilitySection {
   padding: 0.5rem 0 1.5rem;
 }
@@ -242,6 +391,31 @@
 
   .faqSection {
     padding: 2rem 0 3rem;
+  }
+
+  .carouselHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .carouselViewport3d {
+    min-height: 420px;
+  }
+
+  .carouselTrack3d {
+    display: flex;
+    min-height: 420px;
+  }
+
+  .carouselSlide3d {
+    width: 100%;
+    left: 0;
+    height: 420px;
+    translate: 0 0;
+  }
+
+  .modsGrid {
+    grid-template-columns: 1fr;
   }
 
   .stepsList {
